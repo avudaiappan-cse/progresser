@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import FormComponent from "./Components/FormComponent";
+import HistoryComponent from "./Components/HistoryComponent";
+
+const initialDataDummy = {
+  current: null,
+  prevHistory: [],
+  friends: [],
+};
 
 function App() {
+  const [userInfo, setUserInfo] = useState(initialDataDummy);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 
+        Form Component
+        History Component
+        Friends Component
+        Friends Suggestion Component
+      */}
+      <FormComponent userInfo={userInfo} setUserInfo={setUserInfo} />
+      <HistoryComponent userInfo={userInfo} />
     </div>
   );
 }
